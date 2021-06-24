@@ -20,7 +20,7 @@
           <div class="layui-form-item">
 
             <div class="layui-inline">
-              <label class="layui-form-label">学生信息</label>
+              <label class="layui-form-label">教师信息</label>
               <div class="layui-input-inline">
                 <input type="text" name="content" autocomplete="off" class="layui-input">
               </div>
@@ -59,7 +59,7 @@
 
     table.render({
       elem: '#currentTableId',
-      url: '../api/table.json',
+      url: teacherAllUrl,
       toolbar: '#toolbarDemo',
       defaultToolbar: ['filter', 'exports', 'print', {
         title: '提示',
@@ -70,7 +70,7 @@
         {field: 'teacherId', title: 'ID',  hide:true},
         {align:'center', title: '编号', sort: true,type:'numbers',width:100},
         {field: 'teachertName',  title: '姓名'},
-        {field: 'studnetSex',  title: '性别',},
+        {field: 'teachertSex',  title: '性别',},
         {field: 'number',  title: '工号'},
         {field: 'school',  title: '学校名称', },
         {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
@@ -130,7 +130,7 @@
           maxmin:true,
           shadeClose: true,
           area: ['100%', '100%'],
-          content: '../page/table/edit.html',
+          content: 'table/editteacher.html?id='+data.teacherId,
         });
         $(window).on("resize", function () {
           layer.full(index);

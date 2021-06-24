@@ -17,9 +17,9 @@
 <body>
 <div class="layui-form layuimini-form">
   <div class="layui-form-item">
-    <label class="layui-form-label required">学生姓名</label>
+    <label class="layui-form-label required">教师姓名</label>
     <div class="layui-input-block">
-      <input type="text" name="name" lay-verify="required" lay-reqtext="学生姓名不能为空" placeholder="请输入学生姓名" value="" class="layui-input">
+      <input type="text" name="name" lay-verify="required" lay-reqtext="教师姓名不能为空" placeholder="请输入教师姓名" value="" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
@@ -32,11 +32,22 @@
   <div class="layui-form-item">
     <label class="layui-form-label required">工号</label>
     <div class="layui-input-block">
-      <input type="number" name="number" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入学号" value="" class="layui-input">
+      <input type="number" name="number" lay-verify="required" lay-reqtext="工号不能为空" placeholder="请输入工号" value="" class="layui-input">
+    </div>
+  </div>
+	<div class="layui-form-item">
+    <label class="layui-form-label required">密码</label>
+    <div class="layui-input-block">
+      <input type="password" name="password" lay-verify="required" lay-reqtext="password不能为空" placeholder="请输入password" value="" class="layui-input">
     </div>
   </div>
 
-
+<div class="layui-form-item">
+    <label class="layui-form-label required">学校</label>
+    <div class="layui-input-block">
+      <input type="school" name="school" lay-verify="required"  placeholder="请输入学校" value="" class="layui-input">
+    </div>
+  </div>
 
   <div class="layui-form-item">
     <div class="layui-input-block">
@@ -45,6 +56,8 @@
   </div>
 </div>
 <script src="../../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../../../lib/jquery-3.4.1/jquery-3.5.1.min.js"></script>
+<script src="../../../config/api.js"></script>
 <script>
   layui.use(['form'], function () {
     var form = layui.form,
@@ -53,6 +66,31 @@
 
     //监听提交
     form.on('submit(saveBtn)', function (data) {
+    	console.log(JSON.stringify(data.field))
+      $.ajax({
+        //请求方式
+        type : "GET",
+        //请求的媒体类型
+        contentType: "application/json;charset=UTF-8",
+        //请求地址
+        url : teacherAddUrl,
+        //数据，json字符串
+        data : {
+          name : data.field.name,
+          sex : data.field.sex,
+          number : data.field.number,
+          school : data.field.school,
+          password : data.field.password,
+        },
+        //请求成功
+        success : function(result) {
+
+        },
+        //请求失败，包含具体的错误信息
+        error : function(e){
+          console.log(e.status);
+        }
+      });
 
       console.log(JSON.stringify(data.field))
       return false;

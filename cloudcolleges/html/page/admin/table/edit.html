@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>增加学生</title>
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="../../../lib/layui-v2.6.3/css/layui.css" media="all">
-  <link rel="stylesheet" href="../../../css/public.css" media="all">
-  <style>
-    body {
-      background-color: #ffffff;
-    }
-  </style>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 <div class="layui-form layuimini-form">
@@ -66,50 +66,52 @@
 <script src="../../../lib/jquery-3.4.1/jquery-3.5.1.min.js"></script>
 <script src="../../../config/api.js"></script>
 <script>
+    layui.use(['form'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            $ = layui.$;
 
-  layui.use(['form'], function () {
-    var form = layui.form,
-            layer = layui.layer;
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+        	
+             $.ajax({
+		        //请求方式
+		        type : "GET",
+		        //请求的媒体类型
+		        contentType: "application/json;charset=UTF-8",
+		        //请求地址
+		        url : studentUpdateUrl,
+		        //数据，json字符串
+		        data : {
+		          id : getQueryVariable("id"),
+		          studentName : data.field.name,
+		          studnetSex : data.field.sex,
+		          number : data.field.number,
+		          classId : data.field.cid,
+		          password : data.field.password,
+		        },
+		        //请求成功
+		        success : function(result) {
+		
+		        },
+		        //请求失败，包含具体的错误信息
+		        error : function(e){
+		          console.log(e.status);
+		        }
+		      }), function () {
 
-    //监听提交
-    form.on('submit(saveBtn)', function (data) {
-      console.log(JSON.stringify(data.field))
-      $.ajax({
-        //请求方式
-        type : "GET",
-        //请求的媒体类型
-        contentType: "application/json;charset=UTF-8",
-        //请求地址
-        url : studentUpdateUrl,
-        //数据，json字符串
-        data : {
-          id : getQueryVariable("id"),
-          studentName : data.field.name,
-          studnetSex : data.field.sex,
-          number : data.field.name,
-          classId : data.field.cid,
-          password : data.field.password,
-        },
-        //请求成功
-        success : function(result) {
-
-        },
-        //请求失败，包含具体的错误信息
-        error : function(e){
-          console.log(e.status);
-        }
-      });
-
-
-           // 关闭弹出层
+                // 关闭弹出层
                 layer.close(index);
 
                 var iframeIndex = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(iframeIndex);
-        return false;
-    });
 
-  });
+            }
+
+            return false;
+        });
+
+    });
 </script>
 </body>
 </html>

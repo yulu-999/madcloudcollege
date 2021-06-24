@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../../../lib/layui-v2.6.3/css/layui.css" media="all">
     <link rel="stylesheet" href="../../../css/public.css" media="all">
+    <script src="../../../config/api.js"></script>
+    <script src="../../../../dist/layuimini/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
     <style>
         body {
             background-color: #ffffff;
@@ -19,27 +21,34 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">学生姓名</label>
         <div class="layui-input-block">
-            <input type="text" name="name" lay-verify="required" lay-reqtext="学生姓名不能为空" placeholder="请输入学生姓名" value="" class="layui-input">
+            <input type="text" name="name" id="name" lay-verify="required" lay-reqtext="学生姓名不能为空" placeholder="请输入学生姓名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">性别</label>
         <div class="layui-input-block">
-            <input type="radio" name="sex" value="1" title="男" checked="">
-            <input type="radio" name="sex" value="0" title="女">
+            <input type="radio" name="sex" id="sex" value="1" title="男" checked="">
+            <input type="radio" name="sex" id="sex" value="0" title="女">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">学号</label>
         <div class="layui-input-block">
-            <input type="number" name="number" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入学号" value="" class="layui-input">
+            <input type="number" name="number" id="number" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入学号" value="" class="layui-input">
         </div>
     </div>
 
+	<div class="layui-form-item">
+        <label class="layui-form-label required">学生密码</label>
+        <div class="layui-input-block">
+            <input type="number" name="password" id="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入password" value="" class="layui-input">
+        </div>
+    </div>
+    
     <div class="layui-form-item">
         <label class="layui-form-label">班级</label>
         <div class="layui-input-inline">
-            <select name="city" lay-verify="required" lay-search>
+            <select name="cid" id="cid" lay-verify="required" lay-search>
                 <option value=""></option>
                 <option value="1">java</option>
                 <option value="2">python</option>
@@ -63,7 +72,33 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
+			 var name  = $("#name").val();
+				var sex  = $("#sex").val();
+				var number = $("#number").val();
+				var password =  $("#password").val();
+				var cid = $("#cid").val();
+				//var school = $("#school").val();
+				mypost(studentAddUrl, 
+				{
+					"name":name,
+					"sex":sex,
+					"number":number,
+					"password":password,
+					"cid":cid,
+//					"school":school
+			
+				}, 
+				function(data) 
+				{
+					if(data.code == 0)
+						{
 
+							alert("添加成功")
+
+						}
+				})
+
+			
             console.log(JSON.stringify(data.field))
             return false;
         });

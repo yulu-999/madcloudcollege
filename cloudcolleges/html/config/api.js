@@ -1,16 +1,24 @@
 /*  总接口 */
-let url = "http://localhost/";
+let url = "http://10.2.25.33/";
 
 /*********admin服务*********/
 
 let loginUsl = url + "admin/login";
+
 let adminLoginUsl = url + "admin/admin/login";
 
-let studentAllUrl = url + "admin//studnet/all";
+let studentAllUrl = url + "admin/student/all";
 
 let studentUpdateUrl = url + "admin/student/update";
 
+let studentAddUrl = url + "admin/student/add";
 
+
+let teacherAllUrl = url+ "admin/teacher/all"
+
+let teacherAddUrl = url+ "admin/teacher/add"
+
+let teacherUpdateUrl = url+ "admin/teacher/update"
 
 /********数据*********/
 
@@ -78,3 +86,21 @@ function dataTimeYM(time){
     return Y+M;
 }
 
+
+
+function mypost(api, parameters, callback) {
+	
+	$.ajax({
+		url: api,
+		data: parameters,
+		type: 'POST',
+		async:true,
+		dataType: 'json',
+		success: callback,
+		error: function() {
+			//异常处理；  
+			console.log('error : 服务器内部错误');
+			console.log("-------------------------")
+		}
+	});
+}
