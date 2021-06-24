@@ -1,0 +1,33 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/course.html"
+  },
+  "logoInfo": {
+    "title": "教师",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "课程管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "我的课程",
+          "href": "page/course.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "创建课程",
+          "href": "page/recommendCourse.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

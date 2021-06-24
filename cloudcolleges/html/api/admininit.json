@@ -1,0 +1,67 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/admin/student.html"
+  },
+  "logoInfo": {
+    "title": "管理员",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "学生管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "所有学生",
+          "href": "page/admin/student.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "增加学生",
+          "href": "page/admin/table/addstudnet.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "教师管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "所有教师",
+          "href": "page/admin/teacher.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "添加教师",
+          "href": "page/admin/table/addteacher.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "课程管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "所有课程",
+          "href": "page/admin/recommendCourse.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

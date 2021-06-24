@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>课程留言</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main" id="enet">
+
+        <div class="card border-primary mb-3" style="max-width: 100%;">
+            <div class="card-header">秦某人   <span class="layui-badge-rim">2021-23-98</span></div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">
+                    <span class="layui-badge layui-bg-green"><i class="fa fa-star"></i></span>
+                    <span class="layui-badge layui-bg-orange"><i class="fa fa-star"></i></span>
+                    <span class="layui-badge"><i class="fa fa-star"></i></span>
+
+                </h5>
+                <p class="card-text">课程清晰,讲的很棒，nb 6666</p>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<script src="../../lib/jquery-3.4.1/jquery-3.5.1.min.js"></script>
+<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../lib/axios/axios.min.js"></script>
+<script src="../../config/api.js/"></script>
+
+<script>
+
+    function addData(evaluate) {
+        let data = "<div class=\"card border-primary mb-3\" style=\"max-width: 100%;\">\n" +
+            "          <div class=\"card-header\">"+evaluate.name+"   <span class=\"layui-badge-rim\">"+evaluate.createTime+"</span></div>\n" +
+            "          <div class=\"card-body text-primary\">\n" +
+            "            <div class=\"card-title\" id=d"+evaluate.remakerInfoId+">\n" +
+            "            </div>\n" +
+            "            <p class=\"card-text\">"+evaluate.text+"</p>\n" +
+            "          </div>\n" +
+            "        </div>";
+        // console.log(evaluate.remakerInfoId)
+
+        $("#enet").append(data);
+    }
+
+
+
+    layui.use(['form', 'table','layer'], function () {
+        let $ = layui.jquery,
+            form = layui.form,
+            layer = layui.layer,
+            table = layui.table;
+
+        let sonCourseId = eval('('+parent.sonCourseId+')');
+        // if (sonCourseId===null||sonCourseId===undefined) window.location="../index.html";
+
+        // 展示数据
+        axiosRequest(
+            evaluateUrl,
+            //"http://10.2.25.20:8080/comment/selectEvaluate?id=2",
+            {
+                id :sonCourseId
+            },
+            "get"
+        ).then(res=>{
+            let data = res.data;
+            // console.log(data)
+            if (data.code>-1){
+                let evaluates  = data.data;
+                console.log(evaluates)
+                // 增加
+                for (let evaluate of evaluates) {
+                    // console.log(evaluate)
+                    addData(evaluate)
+                    let nn = $("#d"+evaluate.remakerInfoId);
+
+                    if (parseInt(evaluate.garde)==1){
+                        nn.append("<span class=\"layui-badge layui-bg-green\"><i class=\"fa fa-star\"></i></span>")
+                    }else if (parseInt(evaluate.garde)==2){
+                        nn.append("<span class=\"layui-badge layui-bg-green\"><i class=\"fa fa-star\"></i></span>")
+                        nn.append("<span class=\"layui-badge layui-bg-orange\"><i class=\"fa fa-star\"></i></span>")
+                    }else if (parseInt(evaluate.garde)==3){
+                        nn.append("<span class=\"layui-badge layui-bg-green\"><i class=\"fa fa-star\"></i></span>")
+                        nn.append("<span class=\"layui-badge layui-bg-orange\"><i class=\"fa fa-star\"></i></span>")
+                        nn.append("<span class=\"layui-badge\"><i class=\"fa fa-star\"></i></span>")
+                    }
+
+
+
+                }
+
+
+            }else {
+                layer.msg(data.msg)
+
+            }
+        });
+
+
+
+    });
+</script>
+
+</body>
+</html>

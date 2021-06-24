@@ -1,0 +1,36 @@
+.my-auto{
+    font-size: 10px;
+}
+
+.card-body {
+
+}
+/*.card{*/
+/*    float: left;*/
+/*    margin: 20px 10px 10px 10px;*/
+/*}*/
+
+.container{
+    margin-top: 20px;
+}
+
+.my-info{
+    /*transform: translateY(20px);*/
+    margin-top: 20px;
+    /*border: saddlebrown solid ;*/
+    /*box-shadow: 12px 12px 2px 1px #00000008 ;*/
+}
+
+.card-title{
+    letter-spacing: 2px
+}
+
+
+.my-con{
+    font-size: 13px;
+}
+
+.my-title{
+    color: #2a4d04;
+    /*font-weight:bold;*/
+}

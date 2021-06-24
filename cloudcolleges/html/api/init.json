@@ -1,0 +1,33 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/studnet/mycourse.html"
+  },
+  "logoInfo": {
+    "title": "学生",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "课程管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "我的课程",
+          "href": "page/studnet/mycourse.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "所有课程",
+          "href": "page/studnet/course.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}
