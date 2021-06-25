@@ -59,7 +59,7 @@
 
     table.render({
       elem: '#currentTableId',
-      url: '../api/table.json',
+      url: myCourse,
       toolbar: '#toolbarDemo',
       defaultToolbar: ['filter', 'exports', 'print', {
         title: '提示',
@@ -73,10 +73,8 @@
         {field: 'teacher',  title: '创建教师',},
         {field: 'max',  title: '最大人数'},
         {field: 'school',  title: '学校名称', },
-        {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
       ]],
       limit: 10,
-      page: true,
       skin: 'line'
     });
 
@@ -100,7 +98,7 @@
     /**
      * toolbar监听事件
      */
-    table.on('toolbar(currentTableFilter)', function (obj) {
+   /* table.on('toolbar(currentTableFilter)', function (obj) {
       if (obj.event === 'add') {  // 监听添加操作
         var index = layer.open({
           title: '添加用户',
@@ -115,11 +113,11 @@
           layer.full(index);
         });
       }
-    });
+    });*/
 
 
 
-    table.on('tool(currentTableFilter)', function (obj) {
+/*    table.on('tool(currentTableFilter)', function (obj) {
       let data = obj.data;
       if (obj.event === 'edit') {
 
@@ -142,7 +140,7 @@
           layer.close(index);
         });
       }
-    });
+    });*/
 
   });
 </script>

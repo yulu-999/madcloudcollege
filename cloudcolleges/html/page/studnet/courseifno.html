@@ -83,7 +83,8 @@
 <script>
 
   // 是否有 courseId
-  let courseId = getQueryVariable("courseId");
+  let courseId = getQueryVariable("id");
+  alert(courseId);
 
   // // 数据id 是否为null
   // if (courseId==null){
@@ -107,7 +108,7 @@
 
     // 渲染页面
     axiosRequest(
-            courseByIdUrl,
+        courseById,
             {
               id : courseId
             },
@@ -125,7 +126,7 @@
         //渲染数据
          $("#time").html("2021年8月");
          $("#info").append("            <li>创建教师 : "+course.tname+" </li>\n" +
-                 "            <li>课程名称 :  "+course.coname+" </li>\n" +
+                 "            <li>课程名称 :  "+course.courseName+" </li>\n" +
                  "            <li>创建时间 :"+"2008-09-07"+"  </li>")
       }else {
         layui.msg(data.msg);
@@ -161,7 +162,7 @@
       })
     function afa(value){
       axiosRequest(
-              remarkUrl,
+                remarkAdd,
               {
                 id : courseId,
                 grade : value,

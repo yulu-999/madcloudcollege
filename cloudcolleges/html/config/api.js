@@ -13,12 +13,22 @@ let studentUpdateUrl = url + "admin/student/update";
 
 let studentAddUrl = url + "admin/student/add";
 
-
 let teacherAllUrl = url+ "admin/teacher/all"
 
 let teacherAddUrl = url+ "admin/teacher/add"
-
 let teacherUpdateUrl = url+ "admin/teacher/update"
+
+
+let courseAllUrl = url + "course/course/all";
+
+let courseById = url +"course/course/byid";
+
+let remarkAdd = url +"remark/remark/add";
+
+let courseAdd = url +"course/course/add";
+let myCourse = url +"course/course/Bytoken";
+
+let remarkUrl = url + "remark/remark/"
 
 /********数据*********/
 
