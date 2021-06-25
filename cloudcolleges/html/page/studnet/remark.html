@@ -43,9 +43,9 @@
 
     function addData(evaluate) {
         let data = "<div class=\"card border-primary mb-3\" style=\"max-width: 100%;\">\n" +
-            "          <div class=\"card-header\">"+evaluate.studnetId+"   <span class=\"layui-badge-rim\">"+evaluate.createTime+"</span></div>\n" +
+            "          <div class=\"card-header\">"+evaluate.studnetId+"   <span class=\"layui-badge-rim\">"+'2021-6-27'+"</span></div>\n" +
             "          <div class=\"card-body text-primary\">\n" +
-            "            <div class=\"card-title\" id=d"+evaluate.level+">\n" +
+            "            <div class=\"card-title\" id=d"+evaluate.remarkInfoId+">\n" +
             "            </div>\n" +
             "            <p class=\"card-text\">"+evaluate.content+"</p>\n" +
             "          </div>\n" +
@@ -76,22 +76,22 @@
             "get"
         ).then(res=>{
             let data = res.data;
-            // console.log(data)
+            console.log(data)
             if (data.code>-1){
                 let evaluates  = data.data;
-                console.log(evaluates)
+                // console.log(evaluates)
                 // 增加
                 for (let evaluate of evaluates) {
                     // console.log(evaluate)
                     addData(evaluate)
-                    let nn = $("#d"+evaluate.remakerInfoId);
+                    let nn = $("#d"+evaluate.remarkInfoId);
 
-                    if (parseInt(evaluate.garde)==1){
+                    if (parseInt(evaluate.level)==1){
                         nn.append("<span class=\"layui-badge layui-bg-green\"><i class=\"fa fa-star\"></i></span>")
-                    }else if (parseInt(evaluate.garde)==2){
+                    }else if (parseInt(evaluate.level)==2){
                         nn.append("<span class=\"layui-badge layui-bg-green\"><i class=\"fa fa-star\"></i></span>")
                         nn.append("<span class=\"layui-badge layui-bg-orange\"><i class=\"fa fa-star\"></i></span>")
-                    }else if (parseInt(evaluate.garde)==3){
+                    }else if (parseInt(evaluate.level)==3){
                         nn.append("<span class=\"layui-badge layui-bg-green\"><i class=\"fa fa-star\"></i></span>")
                         nn.append("<span class=\"layui-badge layui-bg-orange\"><i class=\"fa fa-star\"></i></span>")
                         nn.append("<span class=\"layui-badge\"><i class=\"fa fa-star\"></i></span>")
