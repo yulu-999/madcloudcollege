@@ -1,5 +1,5 @@
 /*  总接口 */
-let url = "http://10.2.25.33/";
+let url = "http://10.2.61.75/";
 
 /*********admin服务*********/
 
@@ -89,7 +89,7 @@ function dataTimeYM(time){
 
 
 function mypost(api, parameters, callback) {
-	
+
 	$.ajax({
 		url: api,
 		data: parameters,
@@ -98,7 +98,7 @@ function mypost(api, parameters, callback) {
 		dataType: 'json',
 		success: callback,
 		error: function() {
-			//异常处理；  
+			//异常处理；
 			console.log('error : 服务器内部错误');
 			console.log("-------------------------")
 		}
