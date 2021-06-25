@@ -43,11 +43,11 @@
 
     function addData(evaluate) {
         let data = "<div class=\"card border-primary mb-3\" style=\"max-width: 100%;\">\n" +
-            "          <div class=\"card-header\">"+evaluate.name+"   <span class=\"layui-badge-rim\">"+evaluate.createTime+"</span></div>\n" +
+            "          <div class=\"card-header\">"+evaluate.studnetId+"   <span class=\"layui-badge-rim\">"+evaluate.createTime+"</span></div>\n" +
             "          <div class=\"card-body text-primary\">\n" +
-            "            <div class=\"card-title\" id=d"+evaluate.remakerInfoId+">\n" +
+            "            <div class=\"card-title\" id=d"+evaluate.level+">\n" +
             "            </div>\n" +
-            "            <p class=\"card-text\">"+evaluate.text+"</p>\n" +
+            "            <p class=\"card-text\">"+evaluate.content+"</p>\n" +
             "          </div>\n" +
             "        </div>";
         // console.log(evaluate.remakerInfoId)
@@ -68,10 +68,10 @@
 
         // 展示数据
         axiosRequest(
-            evaluateUrl,
+            remarkUrl,
             //"http://10.2.25.20:8080/comment/selectEvaluate?id=2",
             {
-                id :sonCourseId
+                courseId :sonCourseId
             },
             "get"
         ).then(res=>{

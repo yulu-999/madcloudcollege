@@ -28,7 +28,7 @@ let remarkAdd = url +"remark/remark/add";
 let courseAdd = url +"course/course/add";
 let myCourse = url +"course/course/Bytoken";
 
-let remarkUrl = url + "remark/remark/"
+let remarkUrl = url + "remark/remark/byid"
 
 /********数据*********/
 
